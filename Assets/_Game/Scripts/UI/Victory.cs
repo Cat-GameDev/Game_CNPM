@@ -3,12 +3,28 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using System;
+using UnityEngine.Events;
 
 public class Victory : UICanvas
 {
     [SerializeField] TextMeshProUGUI scoreText;
     [SerializeField] Button retryButton;
-    [SerializeField] Button menuButton;
+    [SerializeField] Button rankButton;
+    [SerializeField] TMP_InputField namePlayerInputField;
+    int score;
+
+    public int Score { get => score;}
+
+    public string GetPlayerName() => namePlayerInputField.text;
+
+
+
+    public override void Open()
+    {
+        base.Open();
+        namePlayerInputField.text = null;
+    }
 
     public void RetryButton()
     {
@@ -19,7 +35,7 @@ public class Victory : UICanvas
 
     public void MenuButton()
     {
-        LevelManager.Instance.OnMenu();
+        UIManager.Instance.OpenUI<Rank>();
         Close(0f);
         DeAtiveButton();
     }
@@ -27,18 +43,19 @@ public class Victory : UICanvas
     public void ShowScore(int score)
     {
         scoreText.text = "Score \n" +  score.ToString();
+        this.score = score;
     }
 
     public void ActiveButton()
     {
         retryButton.gameObject.SetActive(true);
-        menuButton.gameObject.SetActive(true);
+        rankButton.gameObject.SetActive(true);
     }
 
     private void DeAtiveButton()
     {
         retryButton.gameObject.SetActive(false);
-        menuButton.gameObject.SetActive(false);
+        rankButton.gameObject.SetActive(false);
     }
 
     public void ActiveButtonAfterTime()

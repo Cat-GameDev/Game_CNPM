@@ -24,7 +24,7 @@ public class LevelManager : Singleton<LevelManager>
 
     [SerializeField] private Coin coin;
     [SerializeField] private Train train;
-    [SerializeField] private Player player;
+    private Player player;
 
     float hightSpeed = 20f;
 
@@ -45,6 +45,7 @@ public class LevelManager : Singleton<LevelManager>
     public Vector3 MoveDirection { get => moveDirection;}
     public float EvnMoveSpeed { get => evnMoveSpeed;}
     public Vector3 PlayerTransform { get => playerTransform; }
+    public Player Player { get => player; set => player = value; }
 
 
     private void Start() 
@@ -57,6 +58,8 @@ public class LevelManager : Singleton<LevelManager>
 
     private void Update() 
     {
+        if(player == null) return;
+        
         if(player.Coin < 100 || isIncreseSpeed)
             return;
         
@@ -300,7 +303,7 @@ public class LevelManager : Singleton<LevelManager>
     private void UpdateRanking()
     {
         UIManager.Instance.OpenUI<Victory>().ShowScore(player.Coin);
-        SaveDataManager.SaveNewRankEntry(SaveDataManager.GetPlayerName(), DateTime.Now, player.Coin);
+        //SaveDataManager.SaveNewRankEntry(SaveDataManager.GetPlayerName(), DateTime.Now, player.Coin);
     }
 
     public void GameOver()
