@@ -16,7 +16,9 @@ public class Rank : UICanvas
         {
             victoryUI = FindObjectOfType<Victory>();
         }
-        SubmitScoreEvent();
+
+        if(victoryUI != null)
+            SubmitScoreEvent();
     }
     public void BackButton()
     {
@@ -28,7 +30,6 @@ public class Rank : UICanvas
     {
         string playerName = victoryUI.GetPlayerName();
         int playerScore = victoryUI.Score;
-        string date = DateTime.Now.ToString();
 
         if (string.IsNullOrEmpty(playerName))
             playerName = "undefined";

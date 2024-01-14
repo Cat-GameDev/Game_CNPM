@@ -116,7 +116,7 @@ public class LevelManager : Singleton<LevelManager>
             SpawnStreetLight(nextBlockPosition, MoveDirection);
         }
 
-        player = SimplePool.Spawn<Player>(PoolType.Player);
+        player = SimplePool.Spawn<Player>(PoolType.Player, Vector3.zero, Quaternion.identity);
         
         
         StartSpawnElements();
