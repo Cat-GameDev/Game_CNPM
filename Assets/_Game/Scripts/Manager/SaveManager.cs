@@ -8,7 +8,7 @@ public class SaveManager : Singleton<SaveManager>
     public int currentCharacter;
     public int coin;
 
-    public bool[] charectersUnlocked = new bool[6] { true, false, false, false, false, false};
+    public bool[] charectersUnlocked = new bool[9] { true, false, false, false, false, false, false, false, false};
 
     void Awake()
     {
@@ -24,11 +24,11 @@ public class SaveManager : Singleton<SaveManager>
             PlayerData_Storage data = (PlayerData_Storage)bf.Deserialize(file);
 
             coin = data.money;
-            currentCharacter = data.currentCar;
-            charectersUnlocked = data.carsUnlocked;
+            currentCharacter = data.currentChacracter;
+            charectersUnlocked = data.charactersUnlocked;
 
-            if (data.carsUnlocked ==  null)
-                charectersUnlocked = new bool[6] { true, false, false, false, false, false };
+            if (data.charactersUnlocked ==  null)
+                charectersUnlocked = new bool[9] { true, false, false, false, false, false , false, false, false};
 
             file.Close();
         }
@@ -41,8 +41,8 @@ public class SaveManager : Singleton<SaveManager>
         PlayerData_Storage data = new PlayerData_Storage();
 
         data.money = coin;
-        data.currentCar = currentCharacter;
-        data.carsUnlocked = charectersUnlocked;
+        data.currentChacracter = currentCharacter;
+        data.charactersUnlocked = charectersUnlocked;
 
         bf.Serialize(file, data);
         file.Close();
@@ -52,7 +52,7 @@ public class SaveManager : Singleton<SaveManager>
 [Serializable]
 class PlayerData_Storage
 {
-    public int currentCar;
+    public int currentChacracter;
     public int money;
-    public bool[] carsUnlocked;
+    public bool[] charactersUnlocked;
 }

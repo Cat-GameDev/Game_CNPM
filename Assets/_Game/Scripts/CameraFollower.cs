@@ -11,6 +11,21 @@ public class CameraFollower : MonoBehaviour
 
     private void LateUpdate()
     {
+        if(GameManager.Instance.IsState(GameState.Shop))
+        {
+            transform.position = new Vector3(0,3,-2.95000005f);
+            transform.rotation = Quaternion.Euler(30f, 0f, 0f);
+            return;
+        }
+
+        if(GameManager.Instance.IsState(GameState.MainMenu))
+        {
+            transform.position = new Vector3(0,3,-2.95000005f);
+            transform.rotation = Quaternion.Euler(30f, 0f, 0f);
+        }
+
+        
+
         if(!GameManager.Instance.IsState(GameState.Gameplay))
             return;
         

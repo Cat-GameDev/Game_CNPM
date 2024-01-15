@@ -13,6 +13,7 @@ public class Victory : UICanvas
     [SerializeField] TextMeshProUGUI distanceText;
     [SerializeField] Button retryButton;
     [SerializeField] Button rankButton;
+    [SerializeField] Button backButton;
     [SerializeField] TMP_InputField namePlayerInputField;
     int score;
     float distance;
@@ -73,12 +74,14 @@ public class Victory : UICanvas
     {
         retryButton.gameObject.SetActive(true);
         rankButton.gameObject.SetActive(true);
+        backButton.gameObject.SetActive(true);
     }
 
     private void DeAtiveButton()
     {
         retryButton.gameObject.SetActive(false);
         rankButton.gameObject.SetActive(false);
+        backButton.gameObject.SetActive(false);
     }
 
     public void ActiveButtonAfterTime()

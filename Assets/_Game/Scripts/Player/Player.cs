@@ -149,6 +149,7 @@ public class Player : GameUnit
 
     public void OnInit()
     {
+        totalDistance = 0f;
         coin = 0;
         if(gamePlay != null)
         {

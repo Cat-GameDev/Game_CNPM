@@ -196,6 +196,7 @@ MonoBehaviour:
   distanceText: {fileID: 4164505972852036302}
   retryButton: {fileID: 5381389065846178585}
   rankButton: {fileID: 1373525083019581282}
+  backButton: {fileID: 7087800539803097555}
   namePlayerInputField: {fileID: 5131628885777202764}
 --- !u!1 &727690387040400421
 GameObject:

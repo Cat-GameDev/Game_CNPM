@@ -23,4 +23,12 @@ public class Shop : UICanvas
         UIManager.Instance.OpenUI<MainMenu>();
         Close(0f);
     }
+
+    public void UseButton()
+    {
+        LevelManager.Instance.OnStartGame();
+
+        UIManager.Instance.OpenUI<GamePlay>();
+        Close(0f);
+    }
 }
