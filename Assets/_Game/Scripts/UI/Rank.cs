@@ -29,12 +29,12 @@ public class Rank : UICanvas
     public void SubmitScoreEvent()
     {
         string playerName = victoryUI.GetPlayerName();
-        int playerScore = victoryUI.Score;
+        int playerDistance = (int)victoryUI.Distance;
 
         if (string.IsNullOrEmpty(playerName))
             playerName = "undefined";
 
-        submitScoreEvent.Invoke(playerName, playerScore);
+        submitScoreEvent.Invoke(playerName, playerDistance);
     }
 
 }

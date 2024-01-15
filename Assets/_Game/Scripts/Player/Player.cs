@@ -33,8 +33,9 @@ public class Player : GameUnit
 
 
     float transformX;
+    float totalDistance = 0f;
     public int Coin { get => coin;}
-
+    public float TotalDistance { get => totalDistance;}
 
     void Start()
     {
@@ -45,23 +46,23 @@ public class Player : GameUnit
 
     void Update()
     {
-        if(!GameManager.Instance.IsState(GameState.Gameplay))
+        if (!GameManager.Instance.IsState(GameState.Gameplay))
             return;
-        else if(gamePlay == null)
+        else if (gamePlay == null)
         {
             gamePlay = FindObjectOfType<GamePlay>();
-            
+
         }
-        else if(IsGrounded())
+        else if (IsGrounded())
         {
-    
+
             ChangeAnim("run");
         }
         else
         {
             ChangeAnim("jump");
         }
-    
+
 
         if (Input.GetMouseButtonDown(0))
         {
@@ -108,7 +109,15 @@ public class Player : GameUnit
             }
         }
         AutoMove();
-        
+
+        CaculatorDistance();
+    }
+
+    private void CaculatorDistance()
+    {
+        float distance = moveSpeed * Time.deltaTime;
+        totalDistance += distance;
+        gamePlay.SetDistance(totalDistance);
     }
 
     private void AutoMove()

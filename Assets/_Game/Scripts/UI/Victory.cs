@@ -9,12 +9,15 @@ using UnityEngine.Events;
 public class Victory : UICanvas
 {
     [SerializeField] TextMeshProUGUI scoreText;
+    [SerializeField] TextMeshProUGUI distanceText;
     [SerializeField] Button retryButton;
     [SerializeField] Button rankButton;
     [SerializeField] TMP_InputField namePlayerInputField;
     int score;
+    float distance;
 
     public int Score { get => score;}
+    public float Distance { get => distance; }
 
     public string GetPlayerName() => namePlayerInputField.text;
 
@@ -40,10 +43,22 @@ public class Victory : UICanvas
         DeAtiveButton();
     }
 
+    public void DisplayResult(float distance, int score)
+    {
+        ShowDistance(distance);
+        ShowScore(score);
+    }
+
     public void ShowScore(int score)
     {
-        scoreText.text = "Score \n" +  score.ToString();
+        scoreText.text = score.ToString();
         this.score = score;
+    }
+
+    public void ShowDistance(float distance)
+    {
+        distanceText.text = "Distance \n" +  distance.ToString("F2");
+        this.distance = distance;
     }
 
     public void ActiveButton()

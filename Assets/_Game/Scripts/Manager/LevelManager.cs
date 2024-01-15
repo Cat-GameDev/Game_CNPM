@@ -302,7 +302,7 @@ public class LevelManager : Singleton<LevelManager>
 
     private void UpdateRanking()
     {
-        UIManager.Instance.OpenUI<Victory>().ShowScore(player.Coin);
+        UIManager.Instance.OpenUI<Victory>().DisplayResult(player.TotalDistance, player.Coin);
         //SaveDataManager.SaveNewRankEntry(SaveDataManager.GetPlayerName(), DateTime.Now, player.Coin);
     }
 

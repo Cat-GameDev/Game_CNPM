@@ -6,9 +6,15 @@ using TMPro;
 public class GamePlay : UICanvas
 {
     [SerializeField] TextMeshProUGUI scoreText;
+    [SerializeField] TextMeshProUGUI distanceText;
     public void SetCoin(int score)
     {
-        scoreText.text = "Score \n" +  score.ToString();
+        scoreText.text = score.ToString();
+    }
+
+    public void SetDistance(float distance)
+    {
+        distanceText.text = "Distance " +  distance.ToString("F2");
     }
 
     public void SettingButton()

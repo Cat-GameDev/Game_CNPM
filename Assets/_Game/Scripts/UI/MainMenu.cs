@@ -31,7 +31,7 @@ public class MainMenu : UICanvas
     public void SettingButton()
     {
         musicPanal.gameObject.SetActive(true);
-        unmute.gameObject.SetActive(false);
+        //unmute.gameObject.SetActive(false);
     }
 
     public void ExitSettingButton()
