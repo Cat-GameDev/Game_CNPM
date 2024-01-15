@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine.UI;
 using System;
 using UnityEngine.Events;
+using UnityEditor;
 
 public class Victory : UICanvas
 {
@@ -29,6 +30,13 @@ public class Victory : UICanvas
         namePlayerInputField.text = null;
     }
 
+    public void BackButton()
+    {
+        UIManager.Instance.OpenUI<MainMenu>();
+        Close(0f);
+        DeAtiveButton();
+    }
+
     public void RetryButton()
     {
         LevelManager.Instance.OnRetry();
@@ -36,7 +44,7 @@ public class Victory : UICanvas
         DeAtiveButton();
     }
 
-    public void MenuButton()
+    public void RankButton()
     {
         UIManager.Instance.OpenUI<Rank>();
         Close(0f);

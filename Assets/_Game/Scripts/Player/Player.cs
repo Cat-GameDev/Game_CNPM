@@ -217,6 +217,10 @@ public class Player : GameUnit
         if(other.CompareTag("DeathZone"))
         {
             LevelManager.Instance.GameOver();
+
+            SaveManager.Instance.coin += coin;
+            SaveManager.Instance.Save();
+
             AudioManager.Instance.PlaySFX("hit");
             ResetTransform();
             return;

@@ -13,6 +13,14 @@ public class MainMenu : UICanvas
     [SerializeField] Button mute;
     [SerializeField] Button unmute;
 
+    public void ShopButton()
+    {
+        GameManager.Instance.ChangeState(GameState.Shop);
+
+        UIManager.Instance.OpenUI<Shop>();
+        Close(0f);
+    }
+
 
     public void PlayButton()
     {
