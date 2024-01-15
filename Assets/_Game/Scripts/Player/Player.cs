@@ -36,6 +36,8 @@ public class Player : GameUnit
     float totalDistance = 0f;
     public int Coin { get => coin;}
     public float TotalDistance { get => totalDistance;}
+    [SerializeField] GameObject[] models;
+    [SerializeField] Avatar[] avatars;
 
     void Start()
     {
@@ -159,7 +161,21 @@ public class Player : GameUnit
         
         currentLaneIndex = 1;
         
-        
+        WearClothes();
+    }
+
+    private void WearClothes()
+    {
+        for(int i=0; i < models.Length; i++)
+        {
+            if(i == SaveManager.Instance.selectionCharacter)
+            {
+                anim.avatar = avatars[i];
+                models[i].SetActive(true);
+            }
+            else
+                models[i].SetActive(false);
+        }
     }
 
 

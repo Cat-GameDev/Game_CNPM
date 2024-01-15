@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class SaveManager : Singleton<SaveManager>
 {
+    public int selectionCharacter;
     public int currentCharacter;
     public int coin;
 
@@ -13,6 +14,11 @@ public class SaveManager : Singleton<SaveManager>
     void Awake()
     {
         Load();
+    }
+
+    public void SelectionCharacter()
+    {
+        selectionCharacter = currentCharacter;
     }
 
     public void Load()

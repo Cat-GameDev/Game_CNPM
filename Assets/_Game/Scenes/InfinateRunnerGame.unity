@@ -298,6 +298,53 @@ MonoBehaviour:
   TF: {fileID: 143410553}
   playerTF: {fileID: 0}
   offset: {x: 0, y: 5, z: -5}
+--- !u!1 &165979594
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 165979595}
+  - component: {fileID: 165979596}
+  m_Layer: 0
+  m_Name: Save Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &165979595
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 165979594}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1600378025}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &165979596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 165979594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b23cbc46d16f0654b907558e2db99bd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentCharacter: 0
+  coin: 0
+  charectersUnlocked: 010000000000000000
 --- !u!1 &183307115
 GameObject:
   m_ObjectHideFlags: 0
@@ -1009,6 +1056,10 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 63a1eb1af6e09164d8e12dd3e98660de, type: 3}
   - name: hit
     clip: {fileID: 8300000, guid: d89e0ed320be8694c83263880bf50ecf, type: 3}
+  - name: purchase
+    clip: {fileID: 8300000, guid: 9b725710694a30c489f9083485f7421e, type: 3}
+  - name: swooshin
+    clip: {fileID: 8300000, guid: 4ff5a72ca19875646931530246bc2faf, type: 3}
   musicSource: {fileID: 683493611}
   sfxSource: {fileID: 714947097}
 --- !u!1 &1366147800
@@ -1187,6 +1238,7 @@ Transform:
   - {fileID: 85184045}
   - {fileID: 4769911350194474342}
   - {fileID: 1326741886}
+  - {fileID: 165979595}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

@@ -26,6 +26,7 @@ public class Shop : UICanvas
 
     public void UseButton()
     {
+        SaveManager.Instance.SelectionCharacter();
         LevelManager.Instance.OnStartGame();
 
         UIManager.Instance.OpenUI<GamePlay>();
