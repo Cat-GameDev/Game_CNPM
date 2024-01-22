@@ -110,6 +110,26 @@ public class Player : GameUnit
                 }
             }
         }
+
+        if(Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            Jump();
+        }
+        else if(Input.GetKeyDown(KeyCode.DownArrow))
+        {
+             Fall();
+        }
+
+        if(Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            MoveRight();
+        }
+        else if(Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            MoveLeft();
+        }
+
+        
         AutoMove();
 
         CaculatorDistance();
