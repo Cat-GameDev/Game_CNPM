@@ -66,7 +66,7 @@ public class Victory : UICanvas
 
     public void ShowDistance(float distance)
     {
-        distanceText.text = "Distance \n" +  distance.ToString("F2");
+        distanceText.text = "Distance \n" +  distance.ToString("F2") + " m";
         this.distance = distance;
     }
 

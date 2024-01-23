@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraFollower : MonoBehaviour
+public class CameraFollower : Singleton<CameraFollower>
 {
     public Transform TF;
     public Transform playerTF;
@@ -39,4 +39,6 @@ public class CameraFollower : MonoBehaviour
         }
         
     }
+
+    
 }

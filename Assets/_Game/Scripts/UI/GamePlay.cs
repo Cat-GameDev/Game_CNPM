@@ -14,7 +14,20 @@ public class GamePlay : UICanvas
 
     public void SetDistance(float distance)
     {
-        distanceText.text = "Distance " +  distance.ToString("F2");
+        string distanceString;
+
+        if (distance >= 1000)
+        {
+            float km = distance / 1000f;
+            float remainingMeters = distance % 1000f;
+            distanceString = $"{km:F0} k {remainingMeters:F0} m";
+        }
+        else
+        {
+            distanceString = $"{distance:F2} m";
+        }
+
+        distanceText.text = "Distance " + distanceString;
     }
 
     public void SettingButton()

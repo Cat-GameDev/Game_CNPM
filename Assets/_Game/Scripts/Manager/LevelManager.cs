@@ -70,25 +70,25 @@ public class LevelManager : Singleton<LevelManager>
 
     private void CheckScore()
     {
-        if(player.Coin > 100 && player.Coin < 200)
+        if(player.TotalDistance > 200 && player.TotalDistance < 500)
         {
-            evnMoveSpeed = 14;
+            evnMoveSpeed = 15;
             hightSpeed = 21;
             
         }
-        else if(player.Coin > 200 && player.Coin < 300)
-        {
-            evnMoveSpeed = 15;
-            hightSpeed = 22;
-        }
-        else if(player.Coin > 300 && player.Coin < 500)
+        else if(player.TotalDistance > 500 && player.TotalDistance < 700)
         {
             evnMoveSpeed = 16;
-            hightSpeed = 23;
+            hightSpeed = 22;
         }
-        else if(player.Coin > 500)
+        else if(player.TotalDistance > 700 && player.TotalDistance < 1000)
         {
             evnMoveSpeed = 17;
+            hightSpeed = 23;
+        }
+        else if(player.TotalDistance > 1000)
+        {
+            evnMoveSpeed = 18;
             hightSpeed = 24;
         }
     }
