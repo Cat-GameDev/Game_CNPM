@@ -43,6 +43,10 @@ public class LevelManager : Singleton<LevelManager>
     public Vector3 PlayerTransform { get => playerTransform; }
     public Player Player { get => player; set => player = value; }
 
+    private float lastDistance = 0f;
+    private float distanceInterval = 500f;  // Khoảng cách giữa mỗi lần tăng giá trị
+    private float maxDistance = 5000f;  // Giới hạn tăng giá trị
+    private float increaseAmount = 0.5f;  // Số lượng tăng giá trị
 
     private void Start() 
     {
@@ -59,7 +63,23 @@ public class LevelManager : Singleton<LevelManager>
         if(player.Coin < 100 || isIncreseSpeed)
             return;
         
-        CheckScore();
+        // Giảm giá trị của player.TotalDistance mỗi frame
+        float distanceDelta = player.TotalDistance - lastDistance;
+
+        // Tăng biến đếm
+        if (distanceDelta >= distanceInterval)
+        {
+            // Reset lastDistance
+            lastDistance = player.TotalDistance;
+
+            // Kiểm tra giới hạn tăng giá trị
+            if (player.TotalDistance < maxDistance)
+            {
+                // Tăng giá trị evnMoveSpeed và hightSpeed
+                evnMoveSpeed += increaseAmount;
+                hightSpeed += increaseAmount;
+            }
+        }
         
     }
 
@@ -68,30 +88,30 @@ public class LevelManager : Singleton<LevelManager>
         return player.transform;
     }
 
-    private void CheckScore()
-    {
-        if(player.TotalDistance > 200 && player.TotalDistance < 500)
-        {
-            evnMoveSpeed = 15;
-            hightSpeed = 21;
+    // private void CheckScore()
+    // {
+    //     if(player.TotalDistance > 200 && player.TotalDistance < 500)
+    //     {
+    //         evnMoveSpeed = 15;
+    //         hightSpeed = 21;
             
-        }
-        else if(player.TotalDistance > 500 && player.TotalDistance < 700)
-        {
-            evnMoveSpeed = 16;
-            hightSpeed = 22;
-        }
-        else if(player.TotalDistance > 700 && player.TotalDistance < 1000)
-        {
-            evnMoveSpeed = 17;
-            hightSpeed = 23;
-        }
-        else if(player.TotalDistance > 1000)
-        {
-            evnMoveSpeed = 18;
-            hightSpeed = 24;
-        }
-    }
+    //     }
+    //     else if(player.TotalDistance > 500 && player.TotalDistance < 700)
+    //     {
+    //         evnMoveSpeed = 16;
+    //         hightSpeed = 22;
+    //     }
+    //     else if(player.TotalDistance > 700 && player.TotalDistance < 1000)
+    //     {
+    //         evnMoveSpeed = 17;
+    //         hightSpeed = 23;
+    //     }
+    //     else if(player.TotalDistance > 1000)
+    //     {
+    //         evnMoveSpeed = 18;
+    //         hightSpeed = 24;
+    //     }
+    // }
 
 
 

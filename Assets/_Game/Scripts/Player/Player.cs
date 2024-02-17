@@ -1,8 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Net.NetworkInformation;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Player : GameUnit
@@ -65,7 +61,17 @@ public class Player : GameUnit
             ChangeAnim("jump");
         }
 
+        MoblieControl();
 
+        WebControl();
+
+        AutoMove();
+
+        CaculatorDistance();
+    }
+
+    private void MoblieControl()
+    {
         if (Input.GetMouseButtonDown(0))
         {
             touchStartPos = Input.mousePosition;
@@ -110,29 +116,27 @@ public class Player : GameUnit
                 }
             }
         }
+    }
 
-        if(Input.GetKeyDown(KeyCode.UpArrow))
+    private void WebControl()
+    {
+        if (Input.GetKeyDown(KeyCode.UpArrow))
         {
             Jump();
         }
-        else if(Input.GetKeyDown(KeyCode.DownArrow))
+        else if (Input.GetKeyDown(KeyCode.DownArrow))
         {
-             Fall();
+            Fall();
         }
 
-        if(Input.GetKeyDown(KeyCode.RightArrow))
+        if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             MoveRight();
         }
-        else if(Input.GetKeyDown(KeyCode.LeftArrow))
+        else if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
             MoveLeft();
         }
-
-        
-        AutoMove();
-
-        CaculatorDistance();
     }
 
     private void CaculatorDistance()
